@@ -1,0 +1,61 @@
+{
+	"name": "api-npm-scripts",
+	"version": "2.0.0",
+	"description": "Module for npm deployment scripts",
+	"main": "dist/index.js",
+	"repository": {},
+	"license": "MIT",
+	"files": [
+		"dist",
+		"package.json",
+		"README.md"
+	],
+	"scripts": {
+		"release": "semantic-release",
+		"commitmsg": "commitlint -e $GIT_PARAMS",
+		"build": "tsc",
+		"prepare": "npm run build"
+	},
+	"dependencies": {
+		"aws-sdk": "^2.373.0",
+		"bluebird": "^3.5.3",
+		"inquirer": "^6.2.1",
+		"jszip": "^3.1.5",
+		"promise-retry": "^1.1.1",
+		"yargs": "^12.0.5"
+	},
+	"bin": {
+		"api-npm-scripts": "dist/index.js"
+	},
+	"devDependencies": {
+		"@commitlint/cli": "^7.2.1",
+		"@commitlint/config-conventional": "^7.1.2",
+		"@types/archiver": "^2.1.2",
+		"@types/inquirer": "^0.0.43",
+		"@types/jszip": "^3.1.4",
+		"@types/node": "^10.12.12",
+		"@types/yargs": "^12.0.1",
+		"cz-conventional-changelog": "^2.1.0",
+		"husky": "^1.2.0",
+		"semantic-release": "^15.12.4",
+		"tslint": "^5.11.0",
+		"typescript": "^3.2.2"
+	},
+	"release": {
+		"repositoryUrl": "git@github.com:valoryteam/api-npm-scripts.git",
+		"branch": "master",
+		"verifyConditions": [
+			"@semantic-release/npm"
+		],
+		"publish": [
+			"@semantic-release/npm"
+		],
+		"success": [],
+		"fail": []
+	},
+	"config": {
+		"commitizen": {
+			"path": "./node_modules/cz-conventional-changelog"
+		}
+	}
+}

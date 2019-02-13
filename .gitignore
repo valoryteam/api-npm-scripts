@@ -1,0 +1,6 @@
+dist
+old
+node_modules
+config.json
+claudia.json
+.idea
